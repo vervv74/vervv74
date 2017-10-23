@@ -21,4 +21,13 @@ public class MaxTest {
         int result = calc.max(1, 2);
         assertThat(result, is(2));
     }
+    /**
+     * @author Valentin Verkhovykh (mailto:vervv74@gmail.com)
+     * @since 23.10.17
+     */
+    public void maxOneTwoThree() {
+        Max calc = new Max();
+        int result = calc.max(1, 2,3);
+        assertThat(result, is(3));
+    }
 }
