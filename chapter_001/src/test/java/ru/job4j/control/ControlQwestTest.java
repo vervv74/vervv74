@@ -19,8 +19,8 @@ public class ControlQwestTest {
      * @since 30.10.17
      */
     public void checkStringsTrue(){
-        ControlQwest check = new ControlQwest();
-        assertThat(true, is(check.check("Урапраздник","празд")));
+        ControlQwest check1 = new ControlQwest();
+        assertThat(true, is(check1.check("Вотмойтест","мой")));
     }
     @Test
     /**
@@ -28,8 +28,8 @@ public class ControlQwestTest {
      * @since 30.10.17
      */
     public void checkStringsFalse(){
-        ControlQwest check = new ControlQwest();
-        assertThat(false, is(check.check("УраПраздник","празд")));
+        ControlQwest check1 = new ControlQwest();
+        assertThat(false, is(check1.check("УраПраздник","празд")));
 
     }
 }
