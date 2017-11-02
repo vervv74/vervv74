@@ -5,6 +5,6 @@ package ru.job4j.heritage;
  */
 public class Engineer extends Profession {
     public void repair (Doctor doctor) {
-
+        System.out.println(this.getName()+" repairs  Doctor "+doctor.getName()+" equipment");
     }
 }

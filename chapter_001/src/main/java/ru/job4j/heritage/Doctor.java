@@ -5,6 +5,6 @@ package ru.job4j.heritage;
  */
 public class Doctor extends Profession {
     public void treat() {
-
+        System.out.println(this.getName()+" finished "+this.getEducation()+" to treat people");
     }
 }
