@@ -4,20 +4,38 @@ package ru.job4j.tracker;
  * Created by v.verkhovykh on 09.11.2017.
  */
 public class Item {
-    static int count = 0;
     private String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     private String description;
+    private int id;
+    /**
+     * Method getName.
+     *
+     * @return name.
+     */
+    public String getName() {
+        return name;
+    }
     /**
      * Method setId.
+     *
      * @param id .
      */
-
     public void setId(int id) {
         this.id = id;
     }
-    private int id;
+
     /**
      * Method getId.
+     *
      * @return id.
      */
     public int getId() {
@@ -26,14 +44,13 @@ public class Item {
 
     /**
      * Method Item
-
-     * @param name Your name.
+     *
+     * @param name        Your name.
      * @param description Your name.
      */
-    public Item(int id, String name, String description) {
-        this.id=id;
-        this.name=name;
-        this.description=description;
-        count++;
+    public Item(String name, String description) {
+        this.name = name;
+        this.description = description;
+
     }
 }

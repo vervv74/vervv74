@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -18,38 +19,33 @@ public class TrackerTest {
      * @author Valentin Verkhovykh (mailto:vervv74@gmail.com)
      * @since 16.11.17
      */
-    public void addAndfind() {
+    public void addAndfindAll() {
         Tracker tracker = new Tracker();
-        Item item = new Item(0, "123", "1234");
+        Item item = new Item("123", "1234");
         tracker.add(item);
-        assertThat(tracker.findByID(0), is("0"));
+        assertThat(tracker.findAll()[0], is(item));
     }
     @Test
     /**
      * @author Valentin Verkhovykh (mailto:vervv74@gmail.com)
      * @since 16.11.17
      */
-    public void addAndDelete() {
+    public void addAndfindByName() {
         Tracker tracker = new Tracker();
-        Item item = new Item(0, "123", "1234");
-        Item item1= new Item(1, "123", "1234");
+        Item item = new Item("123", "1234");
         tracker.add(item);
-        tracker.add(item1);
-        tracker.delete(1);
-        assertThat(tracker.findPozition(1), is(0));
+        assertThat(tracker.findByName("123"), is(item));
     }
     @Test
     /**
      * @author Valentin Verkhovykh (mailto:vervv74@gmail.com)
      * @since 16.11.17
      */
-    public void addAndUpdate() {
+    public void addAndfindById() {
         Tracker tracker = new Tracker();
-        Item item = new Item(0, "123", "1234");
-        Item item1= new Item(1, "123", "1234");
+        Item item = new Item("123", "1234");
         tracker.add(item);
-        tracker.add(item1);
-        tracker.update(1, 0);
-        assertThat(tracker.findPozition(1), is(0));
+        tracker.findAll()[0].setId(4);
+        assertThat(tracker.findById(4), is(item));
     }
 }
