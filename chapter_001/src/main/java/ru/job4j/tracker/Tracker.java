@@ -1,63 +1,81 @@
 package ru.job4j.tracker;
 
-
-import java.util.Random;
-
 /**
  * Created by v.verkhovykh on 09.11.2017.
  */
 public class Tracker {
-    final Item[] items = new Item[100]; // объявляем массив объектов типа Item
-    final Random random = new Random();
-    private int position = 0;
-
+   final Item[] items = new Item[100]; // объявляем массив объектов типа Item
+   int position = 0;
     /**
-     * Метод генерирует уникальный ключ для заявки.
-     * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
+     * Method newItem
      *
-     * @return Уникальный ключ.
+     * @return id.
      */
-    private int generateId() {
-        return random.nextInt();
-    }
+    public Item newItem(int id, String name, String desc) {                    // метод генерации нового объекта типа Item
+        Item item = new Item(id, name, desc);
+        return item;
 
+    }
     /**
      * Method add
      *
      * @param item
-     * @return item
      */
-    public Item add(Item item) {       //метод добавления нового объекта в массив
-        item.setId(this.generateId());
-        items[position] = item;
-        position++;
-        return item;
+    public void add(Item item) {       //метод добавления нового объекта в массив
+        items[this.position] = newItem(this.position,"123", "1234" );
+        this.position++;
     }
 
     /**
-     * Method add
+     * Method findByName
      *
-     * @return item
+     * @param id
+     * @return qwe
      */
-    public Item[] findAll() {
-        return items;
-    }
-
-    public Item findByName(String key) {
+    public String findByID(int id) {       //метод поиска объекта в массиве
+        String qwe = "null";
         for (Item item : items) {
-            if (item.getName().equals(key)) {
-                return item;
+            if (item != null && item.getId() == id) {
+                qwe = String.valueOf(item.getId());
+                break;
             }
         }
-        return null;
+        return qwe;
     }
 
-    public Item findById(int key) {
+    /**
+     * Method Idelete
+     *
+     * @return id.
+     */
+    public void delete(int id) {
         for (Item item : items) {
-            if (item.getId()==key) {
-                return item;
+            if (item != null && item.getId() == id) {
+                item.setId(0);
+                break;
             }
         }
-        return null;
+    }
+
+    /**
+     * Method update
+     *
+     * @param id * @param id1
+     */
+    public void update(int id, int id1) {
+        for (Item item : items) {
+            if (item != null && item.getId() == id) {
+                item.setId(id1);
+                break;
+            }
+        }
+    }
+    /**
+     * Method update
+     *@return items[qwe].getId()
+     * @param qwe
+     */
+    public  int findPozition(int qwe) {
+        return items[qwe].getId();
     }
 }
