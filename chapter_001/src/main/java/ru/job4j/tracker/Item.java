@@ -14,6 +14,10 @@ public class Item {
         this.description = description;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     private String description;
     private int id;
     /**
