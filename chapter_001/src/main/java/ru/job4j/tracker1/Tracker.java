@@ -1,15 +1,11 @@
-package ru.job4j.tracker;
-
+package ru.job4j.tracker1;
 
 import java.util.Random;
 
-
 /**
- * Created by v.verkhovykh on 09.11.2017.
+ * Created by v.verkhovykh on 30.11.2017.
  */
-
 public class Tracker {
-
     final Item[] items = new Item[100]; // объявляем массив объектов типа Item
 
     final Random random = new Random();
@@ -118,14 +114,13 @@ public class Tracker {
 
     public void replace(int key, Item item) /*throws NullPointerException*/  {
         for (Item item1 : items) {
-/*try {*/
-
-                if (item!=null&&item1.getId() == key) {
+            try {
+                if (item1.getId() == key) {
                     item1.setName(item.getName());
                     item1.setDescription(item.getDescription());
                 }
-      /*  }
-catch(NullPointerException e){}*/
+            }
+            catch(NullPointerException e){}
 
         }
     }

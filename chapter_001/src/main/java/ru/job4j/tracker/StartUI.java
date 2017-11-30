@@ -116,7 +116,7 @@ public class StartUI {
     }
 
     public static void main(String[] args) throws NullPointerException {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
-
+        ConsoleInput input=new ConsoleInput();
+        new StartUI(input, new Tracker()).init();
     }
 }
